@@ -30,15 +30,30 @@ fn main() {
     // index for walking on array
     let mut index:usize = 0;
 
+    // the first and last index
+    let mut low:usize = 0;
+    let mut high:usize = haystack.len() - 1;
+
     loop {
+
+        let mid:usize = (low + high) / 2;
+
+        let guess: u8 = haystack[mid];
+
         println!("Step {}", index + 1);
         
-        println!("Is it {} ?", haystack[index]);
+        println!("Is it {} ?", guess);
 
-        if haystack[index] == needle {
-            println!("Hooray!");
+        if guess == needle {
+            println!("YESS!! Hooray!");
             break;
-        }   
+        } else if guess < needle {
+                low = mid + 1;
+                println!("it is higher than {}", guess);
+        } else {
+            high = mid - 1;
+            println!("it is lower than {}", guess);
+        }
 
         index = index + 1;
     }
