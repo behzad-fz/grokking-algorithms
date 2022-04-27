@@ -36,7 +36,7 @@ fn main() {
         println!("Is it {} ?", haystack[index]);
 
         if haystack[index] == needle {
-            println!("Hooray");
+            println!("Hooray!");
             break;
         }   
 
