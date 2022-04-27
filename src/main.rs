@@ -13,7 +13,14 @@ fn main() {
 
     // get the needle from console
     let mut buffer = String::new();
-    io::stdin().read_line(&mut buffer);
+    
+    // Error handling
+    match io::stdin().read_line(&mut buffer) {
+        Ok(n) => {
+            println!("{} bytes read", n);
+        }
+        Err(error) => println!("error: {}", error),
+    }
 
     // convert string to integer
     let needle: u8 = buffer.trim().parse().unwrap();
