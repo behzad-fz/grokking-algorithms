@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     println!("Simple Search!");
 
@@ -9,8 +11,14 @@ fn main() {
         haystack[number as usize] = number + 1;
     }
 
-    // get needle from user
-    let needle: u8 = 50;
+    // get the needle from console
+    let mut buffer = String::new();
+    io::stdin().read_line(&mut buffer);
+
+    // convert string to integer
+    let needle: u8 = buffer.trim().parse().unwrap();
+
+    println!("We are looking for {}", needle);
 
     // index for walking on array
     let mut index:usize = 0;
