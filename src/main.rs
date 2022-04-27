@@ -4,10 +4,10 @@ fn main() {
     println!("Simple Search!");
 
     // create haystack
-    let mut haystack: [u8; 100] = [0; 100];
+    let mut haystack: [u8; 255] = [0; 255];
 
     // initiate haystack
-    for number in 0u8..100 {
+    for number in 0u8..255 {
         haystack[number as usize] = number + 1;
     }
 
@@ -60,3 +60,4 @@ fn main() {
 
     println!("We found it in {} steps!", index + 1);
 }
+
